@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="icon" href="icon.png">
+		<title>Dodgy</title>
+	</head>
+	<body onload="speedSet()">
+		<canvas id="canvas"></canvas>
+		<script>
+		BG_COLOR = "#333"
+		OBS_COLOR = "#FFF"
+		PLAYER_COLOR = "#0FF"
+		POWERUP_COLOR = "#0F0"
+
+		var FIRST_BACKGROUND = '#333'
+		var SECOND_BACKGROUND = '#333'
+		var THIRD_BACKGROUND = '#333'
+		var FOURTH_BACKGROUND = '#333'
+		var FIFTH_BACKGROUND = '#333'
+
+		const canvas = document.getElementById('canvas')
+		const context = canvas.getContext('2d')
+
+		canvas.width = 1300;
+		canvas.height = 600;
+
+		const ObstacleGap = 1;
+		const ScreenSize = 20;
+		const XLimit = canvas.width / ScreenSize;
+		const YLimit = canvas.height / ScreenSize;
+
+		var Point = 0;
+
+		let player, playervel, playerpos
+		, obstacle, obsvel, obspos
+		, obstacle2, obsvel2, obspos2
+		, obstacle3, obsvel3, obspos3
+		, obstacle4, obsvel4, obspos4
+		, obstacle5, obsvel5, obspos5
+		, obstacle6, obsvel6, obspos6
+		, obstacle7, obsvel7, obspos7
+		, obstacle8, obsvel8, obspos8
+		, obstacle9, obsvel9, obspos9
+		, obstacle10, obsvel10, obspos10
+		, obstacle11, obsvel11, obspos11
+		, obstacle12, obsvel12, obspos12
+		, obstacle13, obsvel13, obspos13
+		, obstacle14, obsvel14, obspos14
+		, obstacle15, obsvel15, obspos15
+		, obstacle16, obsvel16, obspos16
+		, obstacle17, obsvel17, obspos17
+		, obstacle18, obsvel18, obspos18
+		, obstacle19, obsvel19, obspos19
+		, obstacle20, obsvel20, obspos20;
+
+		document.addEventListener('keydown', keydown);
+
+		function keydown(d){
+		  switch(d.keyCode){
+		    case 87:{
+		      return playervel = {x: 0, y: -1};
+		    }
+		    case 83:{
+		      return playervel = {x: 0, y: 1};
+		    }
+		  }
+		}
+
+		document.addEventListener('keyup', keyup);
+
+		function keyup(u){
+		  switch(u.keyCode){
+		    case 87:{
+		      return playervel = {x: 0, y: 0};
+		    }
+		    case 83:{
+		      return playervel = {x: 0, y: 0};
+		    }
+		  }
+		}
+
+		function randomSpawn(){
+		  playervel = {x:0, y:0};
+		  player = playerpos = {
+		    x:0,
+		    y:Math.floor(Math.random() * YLimit),
+		  };
+		  Point = 0;
+		}
+
+		randomSpawn();
+
+		function speedSet(){
+		  obsvel = obsvel2 = obsvel3 = obsvel4 = obsvel5 = obsvel6 = obsvel7 = obsvel8 = obsvel9 = obsvel10 = obsvel11 = obsvel12 = obsvel13 = obsvel14 = obsvel15 = obsvel16 = obsvel17 = obsvel18 = obsvel19 = obsvel20 =
+			{x: -1, y:0};
+		}
+
+		function randomObstacle(){
+		  obspos = obstacle = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos2 = obstacle2 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos3 = obstacle3 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos4 = obstacle4 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos5 = obstacle5 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos6 = obstacle6 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos7 = obstacle7 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos8 = obstacle8 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos9 = obstacle9 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos10 = obstacle10 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos11 = obstacle11 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos12 = obstacle12 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos13 = obstacle13 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos14 = obstacle14 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos15 = obstacle15 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos16 = obstacle16 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos17 = obstacle17 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos18 = obstacle18 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos19 = obstacle19 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		  obspos20 = obstacle20 = {
+		    x: XLimit-1,
+		    y: Math.floor(Math.random() * YLimit),
+		  }
+		}
+
+		randomObstacle();
+
+		function pointIncrease(){
+		  Point += 10;
+		}
+
+		var FrameRate = 30;
+
+		var game = setInterval(() => {
+				requestAnimationFrame(gameLoop);
+		}, 1000/FrameRate);
+
+		function stopGame(){
+			clearInterval(game)
+		}
+
+		function gameLoop() {
+
+		  context.fillStyle = BG_COLOR;
+		  context.fillRect(0, 0, canvas.width, canvas.height);
+
+		  context.fillStyle = OBS_COLOR;
+		  context.fillRect(obstacle.x*ScreenSize, obstacle.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle2.x*ScreenSize, obstacle2.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle3.x*ScreenSize, obstacle3.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle4.x*ScreenSize, obstacle4.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle5.x*ScreenSize, obstacle5.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle6.x*ScreenSize, obstacle6.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle7.x*ScreenSize, obstacle7.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle8.x*ScreenSize, obstacle8.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle9.x*ScreenSize, obstacle9.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle10.x*ScreenSize, obstacle10.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle11.x*ScreenSize, obstacle11.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle12.x*ScreenSize, obstacle12.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle13.x*ScreenSize, obstacle13.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle14.x*ScreenSize, obstacle14.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle15.x*ScreenSize, obstacle15.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle16.x*ScreenSize, obstacle16.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle17.x*ScreenSize, obstacle17.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle18.x*ScreenSize, obstacle18.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle19.x*ScreenSize, obstacle19.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.fillRect(obstacle20.x*ScreenSize, obstacle20.y*ScreenSize, ScreenSize, ScreenSize);
+
+		  context.fillStyle = PLAYER_COLOR;
+		  context.fillRect(player.x*ScreenSize, player.y*ScreenSize,ScreenSize,ScreenSize);
+
+		  context.fillStyle = PLAYER_COLOR;
+		  context.font = "50px Verdana";
+		  context.fillText(Point, canvas.width/100, canvas.height/10, 100);
+
+		  if(obspos.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos2.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos3.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos4.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos5.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos6.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos7.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos8.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos9.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos10.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos11.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos12.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos13.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos14.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos15.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos16.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos17.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos18.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos19.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+		  if(obspos20.x <= 0){
+		    randomObstacle();
+		    Point++
+		  }
+
+
+		  playerpos.y += playervel.y;
+		  obspos.x += obsvel.x;
+		  obspos2.x += obsvel2.x;
+		  obspos3.x += obsvel3.x;
+		  obspos4.x += obsvel4.x;
+		  obspos5.x += obsvel5.x;
+		  obspos6.x += obsvel6.x;
+		  obspos7.x += obsvel7.x;
+		  obspos8.x += obsvel8.x;
+		  obspos9.x += obsvel9.x;
+		  obspos10.x += obsvel10.x;
+		  obspos11.x += obsvel11.x;
+		  obspos12.x += obsvel12.x;
+		  obspos13.x += obsvel13.x;
+		  obspos14.x += obsvel14.x;
+		  obspos15.x += obsvel15.x;
+		  obspos16.x += obsvel16.x;
+		  obspos17.x += obsvel17.x;
+		  obspos18.x += obsvel18.x;
+		  obspos19.x += obsvel19.x;
+		  obspos20.x += obsvel20.x;
+
+		  if(playerpos.y < 0){
+		    playerpos.y = 0;
+		  }
+
+		  if(playerpos.y > (YLimit-1)){
+		    playerpos.y = (YLimit-1);
+		  }
+
+		  if(playervel.y){
+		    player.push({...playerpos});
+		    player.shift();
+		  }
+
+		  if(playerpos.x == obspos.x && playerpos.y == obspos.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos2.x && playerpos.y == obspos2.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos3.x && playerpos.y == obspos3.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos4.x && playerpos.y == obspos4.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos5.x && playerpos.y == obspos5.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos6.x && playerpos.y == obspos6.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos7.x && playerpos.y == obspos7.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos8.x && playerpos.y == obspos8.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos9.x && playerpos.y == obspos9.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos10.x && playerpos.y == obspos10.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos11.x && playerpos.y == obspos11.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos12.x && playerpos.y == obspos12.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos13.x && playerpos.y == obspos13.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos14.x && playerpos.y == obspos14.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos15.x && playerpos.y == obspos15.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos16.x && playerpos.y == obspos16.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos17.x && playerpos.y == obspos17.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos18.x && playerpos.y == obspos18.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos19.x && playerpos.y == obspos19.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == obspos20.x && playerpos.y == obspos20.y){
+		    stopGame();
+
+				context.fillStyle = PLAYER_COLOR;
+				context.font = "50px Verdana";
+				context.fillText("Game Over", canvas.width/2.5, canvas.height/2, 1000)
+		    Point = -1;
+		    obsvel1.x = -1;
+		  }
+
+		  if(playerpos.x == powerUpPos.x && playerpos.y == powerUpPos.y){
+		    Point += 10;
+		  }
+
+		  if(obsvel.x){
+		    obstacle.push({...obspos});
+		    obstacle.shift();
+		  }
+
+		  if(obsvel2.x){
+		    obstacle2.push({...obspos2});
+		    obstacle2.shift();
+		  }
+
+		  if(obsvel3.x){
+		    obstacle3.push({...obspos3});
+		    obstacle3.shift();
+		  }
+
+		  if(obsvel4.x){
+		    obstacle4.push({...obspos4});
+		    obstacle4.shift();
+		  }
+
+		  if(obsvel5.x){
+		    obstacle5.push({...obspos5});
+		    obstacle5.shift();
+		  }
+
+		  if(obsvel6.x){
+		    obstacle6.push({...obspos6});
+		    obstacle6.shift();
+		  }
+
+		  if(obsvel7.x){
+		    obstacle7.push({...obspos7});
+		    obstacle7.shift();
+		  }
+
+		  if(obsvel8.x){
+		    obstacle8.push({...obspos8});
+		    obstacle8.shift();
+		  }
+
+		  if(obsvel9.x){
+		    obstacle9.push({...obspos9});
+		    obstacle9.shift();
+		  }
+
+		  if(obsvel10.x){
+		    obstacle10.push({...obspos10});
+		    obstacle10.shift();
+		  }
+
+		  if(obsvel11.x){
+		    obstacle11.push({...obspos11});
+		    obstacle11.shift();
+		  }
+
+		  if(obsvel12.x){
+		    obstacle12.push({...obspos12});
+		    obstacle12.shift();
+		  }
+
+		  if(obsvel13.x){
+		    obstacle13.push({...obspos13});
+		    obstacle13.shift();
+		  }
+
+		  if(obsvel14.x){
+		    obstacle14.push({...obspos14});
+		    obstacle14.shift();
+		  }
+
+		  if(obsvel15.x){
+		    obstacle15.push({...obspos15});
+		    obstacle15.shift();
+		  }
+
+		  if(obsvel16.x){
+		    obstacle16.push({...obspos16});
+		    obstacle16.shift();
+		  }
+
+		  if(obsvel17.x){
+		    obstacle17.push({...obspos17});
+		    obstacle17.shift();
+		  }
+
+		  if(obsvel18.x){
+		    obstacle18.push({...obspos18});
+		    obstacle18.shift();
+		  }
+
+		  if(obsvel19.x){
+		    obstacle19.push({...obspos19});
+		    obstacle19.shift();
+		  }
+
+		  if(obsvel20.x){
+		    obstacle20.push({...obspos20});
+		    obstacle20.shift();
+		  }
+		}
+	</script>
+		<div class="square"></div>
+	</body>
+	<style>
+		canvas{
+			border-style: solid;
+			border-width: 10px;
+			border-color: black;
+			border-radius: 5px;
+		}
+	</style>
+</html>
