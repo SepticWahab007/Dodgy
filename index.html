@@ -6,12 +6,61 @@
 		<title>Dodgy</title>
 	</head>
 	<body onload="speedSet()">
+		<div id="square"></div>
 		<canvas id="canvas"></canvas>
 		<script>
 		BG_COLOR = "#333"
 		OBS_COLOR = "#FFF"
 		PLAYER_COLOR = "#0FF"
 		POWERUP_COLOR = "#0F0"
+
+		car1 = new Image()
+		car1.src = "car1.png"
+		car2 = new Image()
+		car2.src = "car2.png"
+		car3 = new Image()
+		car3.src = "car3.png"
+		car4 = new Image()
+		car4.src = "car4.png"
+		car5 = new Image()
+		car5.src = "car5.png"
+		car6 = new Image()
+		car6.src = "car6.png"
+		car7 = new Image()
+		car7.src = "car7.png"
+		car8 = new Image()
+		car8.src = "car8.png"
+		car9 = new Image()
+		car9.src = "car9.png"
+		car10 = new Image()
+		car10.src = "car10.png"
+		car11 = new Image()
+		car11.src = "car11.png"
+		car12 = new Image()
+		car12.src = "car12.png"
+		car13 = new Image()
+		car13.src = "car13.png"
+		car14 = new Image()
+		car14.src = "car14.png"
+		car15 = new Image()
+		car15.src = "car15.png"
+		car16 = new Image()
+		car16.src = "car16.png"
+		car17 = new Image()
+		car17.src = "car17.png"
+		car18 = new Image()
+		car18.src = "car18.png"
+		car19 = new Image()
+		car19.src = "car19.png"
+		car20 = new Image()
+		car20.src = "car20.png"
+
+		road = new Image()
+		road.src = "ROAD.png"
+		roadmove = new Image()
+		roadmove.src = "ROADMOVE.png"
+		roadanimate = new Image()
+		roadanimate.src = "roadanimate.png"
 
 		var FIRST_BACKGROUND = '#333'
 		var SECOND_BACKGROUND = '#333'
@@ -31,6 +80,7 @@
 		const YLimit = canvas.height / ScreenSize;
 
 		var Point = 0;
+		var moveRoad = 0;
 
 		let player, playervel, playerpos
 		, obstacle, obsvel, obspos
@@ -64,6 +114,12 @@
 		    case 83:{
 		      return playervel = {x: 0, y: 1};
 		    }
+			  case 65:{
+			    return playervel = {x: 0, y: 0};
+		   	}
+			  case 68:{
+			    return playervel = {x: 0, y: 0};
+			  }
 		  }
 		}
 
@@ -77,6 +133,12 @@
 		    case 83:{
 		      return playervel = {x: 0, y: 0};
 		    }
+			  case 65:{
+			    return playervel = {x: 0, y: 0};
+		   	}
+			  case 68:{
+			    return playervel = {x: 0, y: 0};
+			  }
 		  }
 		}
 
@@ -96,90 +158,185 @@
 			{x: -1, y:0};
 		}
 
-		function randomObstacle(){
+		function randomObstacle1(){
 		  obspos = obstacle = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos2 = obstacle2 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos3 = obstacle3 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos4 = obstacle4 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos5 = obstacle5 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos6 = obstacle6 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos7 = obstacle7 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos8 = obstacle8 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos9 = obstacle9 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos10 = obstacle10 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos11 = obstacle11 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos12 = obstacle12 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos13 = obstacle13 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos14 = obstacle14 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos15 = obstacle15 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos16 = obstacle16 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos17 = obstacle17 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos18 = obstacle18 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos19 = obstacle19 = {
-		    x: XLimit-1,
-		    y: Math.floor(Math.random() * YLimit),
-		  }
-		  obspos20 = obstacle20 = {
-		    x: XLimit-1,
+		    x: XLimit + 0,
 		    y: Math.floor(Math.random() * YLimit),
 		  }
 		}
 
-		randomObstacle();
+		function randomObstacle2(){
+			obspos2 = obstacle2 = {
+				x: XLimit - 1 ,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle3(){
+			obspos3 = obstacle3 = {
+				x: XLimit + 2,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle4(){
+			obspos4 = obstacle4 = {
+				x: XLimit + 3,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle5(){
+			obspos5 = obstacle5 = {
+				x: XLimit + 4,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle6(){
+			obspos6 = obstacle6 = {
+				x: XLimit + 5,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle7(){
+			obspos7 = obstacle7 = {
+				x: XLimit + 6,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle8(){
+			obspos8 = obstacle8 = {
+				x: XLimit + 7,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle9(){
+			obspos9 = obstacle9 = {
+				x: XLimit + 8,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle10(){
+			obspos10 = obstacle10 = {
+				x: XLimit + 9,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle11(){
+			obspos11 = obstacle11 = {
+			x: XLimit + 10,
+					y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle12(){
+			obspos12 = obstacle12 = {
+				x: XLimit + 11,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle13(){
+			obspos13 = obstacle13 = {
+				x: XLimit + 12,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle14(){
+			obspos14 = obstacle14 = {
+				x: XLimit + 13,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle15(){
+			obspos15 = obstacle15 = {
+				x: XLimit + 14,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle16(){
+			obspos16 = obstacle16 = {
+				x: XLimit + 15,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle17(){
+			obspos17 = obstacle17 = {
+				x: XLimit + 16,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle18(){
+			obspos18 = obstacle18 = {
+				x: XLimit + 17,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle19(){
+			obspos19 = obstacle19 = {
+				x: XLimit + 18,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		function randomObstacle20(){
+			obspos20 = obstacle20 = {
+				x: XLimit + 19,
+				y: Math.floor(Math.random() * YLimit),
+			}
+
+		}
+
+		randomObstacle1();
+		randomObstacle2();
+		randomObstacle3();
+		randomObstacle4();
+		randomObstacle5();
+		randomObstacle6();
+		randomObstacle7();
+		randomObstacle8();
+		randomObstacle9();
+		randomObstacle10();
+		randomObstacle11();
+		randomObstacle12();
+		randomObstacle13();
+		randomObstacle14();
+		randomObstacle15();
+		randomObstacle16();
+		randomObstacle17();
+		randomObstacle18();
+		randomObstacle19();
+		randomObstacle20();
 
 		function pointIncrease(){
 		  Point += 10;
@@ -188,129 +345,215 @@
 		var FrameRate = 30;
 
 		var game = setInterval(() => {
-				requestAnimationFrame(gameLoop);
+			requestAnimationFrame(gameLoop);
 		}, 1000/FrameRate);
 
 		function stopGame(){
 			clearInterval(game)
 		}
 
+		var roadmove = -1300;
+
 		function gameLoop() {
 
-		  context.fillStyle = BG_COLOR;
-		  context.fillRect(0, 0, canvas.width, canvas.height);
+			roadmove += 40;
+
+			if(roadmove >= 0){
+				roadmove = -1300;
+			}
+
+			context.drawImage(roadanimate, roadmove, 0);
 
 		  context.fillStyle = OBS_COLOR;
-		  context.fillRect(obstacle.x*ScreenSize, obstacle.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle2.x*ScreenSize, obstacle2.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle3.x*ScreenSize, obstacle3.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle4.x*ScreenSize, obstacle4.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle5.x*ScreenSize, obstacle5.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle6.x*ScreenSize, obstacle6.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle7.x*ScreenSize, obstacle7.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle8.x*ScreenSize, obstacle8.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle9.x*ScreenSize, obstacle9.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle10.x*ScreenSize, obstacle10.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle11.x*ScreenSize, obstacle11.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle12.x*ScreenSize, obstacle12.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle13.x*ScreenSize, obstacle13.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle14.x*ScreenSize, obstacle14.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle15.x*ScreenSize, obstacle15.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle16.x*ScreenSize, obstacle16.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle17.x*ScreenSize, obstacle17.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle18.x*ScreenSize, obstacle18.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle19.x*ScreenSize, obstacle19.y*ScreenSize, ScreenSize, ScreenSize);
-		  context.fillRect(obstacle20.x*ScreenSize, obstacle20.y*ScreenSize, ScreenSize, ScreenSize);
+		  context.drawImage(car1, obstacle.x*ScreenSize, obstacle.y*ScreenSize);
+		  context.drawImage(car2, obstacle2.x*ScreenSize, obstacle2.y*ScreenSize);
+		  context.drawImage(car3, obstacle3.x*ScreenSize, obstacle3.y*ScreenSize);
+		  context.drawImage(car4, obstacle4.x*ScreenSize, obstacle4.y*ScreenSize);
+		  context.drawImage(car5, obstacle5.x*ScreenSize, obstacle5.y*ScreenSize);
+		  context.drawImage(car6, obstacle6.x*ScreenSize, obstacle6.y*ScreenSize);
+		  context.drawImage(car7, obstacle7.x*ScreenSize, obstacle7.y*ScreenSize);
+		  context.drawImage(car8, obstacle8.x*ScreenSize, obstacle8.y*ScreenSize);
+		  context.drawImage(car9, obstacle9.x*ScreenSize, obstacle9.y*ScreenSize);
+		  context.drawImage(car10, obstacle10.x*ScreenSize, obstacle10.y*ScreenSize);
+		  context.drawImage(car11, obstacle11.x*ScreenSize, obstacle11.y*ScreenSize);
+		  context.drawImage(car12, obstacle12.x*ScreenSize, obstacle12.y*ScreenSize);
+		  context.drawImage(car13, obstacle13.x*ScreenSize, obstacle13.y*ScreenSize);
+		  context.drawImage(car14, obstacle14.x*ScreenSize, obstacle14.y*ScreenSize);
+		  context.drawImage(car15, obstacle15.x*ScreenSize, obstacle15.y*ScreenSize);
+		  context.drawImage(car16, obstacle16.x*ScreenSize, obstacle16.y*ScreenSize);
+		  context.drawImage(car17, obstacle17.x*ScreenSize, obstacle17.y*ScreenSize);
+		  context.drawImage(car18, obstacle18.x*ScreenSize, obstacle18.y*ScreenSize);
+		  context.drawImage(car19, obstacle19.x*ScreenSize, obstacle19.y*ScreenSize);
+		  context.drawImage(car10, obstacle20.x*ScreenSize, obstacle20.y*ScreenSize);
 
 		  context.fillStyle = PLAYER_COLOR;
-		  context.fillRect(player.x*ScreenSize, player.y*ScreenSize,ScreenSize,ScreenSize);
+			context.drawImage(car20, player.x*ScreenSize, player.y*ScreenSize)
 
 		  context.fillStyle = PLAYER_COLOR;
 		  context.font = "50px Verdana";
 		  context.fillText(Point, canvas.width/100, canvas.height/10, 100);
 
+		  if(obspos.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos2.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos3.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos4.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos5.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos6.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos7.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos8.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos9.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos10.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos11.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos12.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos13.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos14.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos15.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos16.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos17.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos18.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos19.x == playerpos.x){
+		    Point++
+		  }
+
+		  if(obspos20.x == playerpos.x){
+		    Point++
+		  }
+
 		  if(obspos.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos2.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos3.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos4.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos5.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos6.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos7.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos8.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos9.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos10.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos11.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos12.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos13.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos14.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos15.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos16.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos17.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos18.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos19.x <= 0){
-		    randomObstacle();
-		    Point++
-		  }
-		  if(obspos20.x <= 0){
-		    randomObstacle();
-		    Point++
+		    randomObstacle1();
 		  }
 
+			if(obspos2.x <= 0){
+		    randomObstacle2();
+		  }
 
+			if(obspos3.x <= 0){
+		    randomObstacle3();
+		  }
+
+			if(obspos4.x <= 0){
+		    randomObstacle4();
+		  }
+
+			if(obspos5.x <= 0){
+		    randomObstacle5();
+		  }
+
+			if(obspos6.x <= 0){
+		    randomObstacle6();
+		  }
+
+			if(obspos7.x <= 0){
+		    randomObstacle7();
+		  }
+
+			if(obspos8.x <= 0){
+		    randomObstacle8();
+		  }
+
+			if(obspos9.x <= 0){
+		    randomObstacle9();
+		  }
+
+			if(obspos10.x <= 0){
+		    randomObstacle10();
+		  }
+
+			if(obspos11.x <= 0){
+		    randomObstacle11();
+		  }
+
+			if(obspos12.x <= 0){
+		    randomObstacle12();
+		  }
+
+			if(obspos13.x <= 0){
+		    randomObstacle13();
+		  }
+
+			if(obspos14.x <= 0){
+		    randomObstacle14();
+		  }
+
+			if(obspos15.x <= 0){
+		    randomObstacle15();
+		  }
+
+			if(obspos16.x <= 0){
+		    randomObstacle16();
+		  }
+
+			if(obspos17.x <= 0){
+		    randomObstacle17();
+		  }
+
+			if(obspos18.x <= 0){
+		    randomObstacle18();
+		  }
+
+			if(obspos19.x <= 0){
+		    randomObstacle19();
+		  }
+
+			if(obspos20.x <= 0){
+		    randomObstacle20();
+		  }
+
+		  playerpos.x += playervel.x;
 		  playerpos.y += playervel.y;
 		  obspos.x += obsvel.x;
 		  obspos2.x += obsvel2.x;
@@ -651,14 +894,25 @@
 		  }
 		}
 	</script>
-		<div class="square"></div>
 	</body>
 	<style>
-		canvas{
-			border-style: solid;
-			border-width: 10px;
-			border-color: black;
-			border-radius: 5px;
+
+		@keyframes scroll {
+			0%{
+				left: -10px
+			}
+			50%{
+				left: -20px
+			}
+			100%{
+				left: -30px
+			}
 		}
+			#canvas{
+				border-style: solid;
+				border-width: 10px;
+				border-color: black;
+				border-radius: 5px;
+			}
 	</style>
 </html>
